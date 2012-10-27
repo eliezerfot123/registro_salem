@@ -1,0 +1,44 @@
+from django.db import models
+from django.db import models
+
+class Iglesias(models.Model):
+    nombre = models.CharField(max_length=50,verbose_name=u'Nombre de la Iglesia')
+    direccion = models.TextField(verbose_name=u'direccion')
+    pastor = models.CharField(max_length=50,verbose_name='Nombre del Pastor') 
+    def __unicode__(self):
+        return self.nombre
+    class Meta:
+        db_table = u'iglesia'
+        verbose_name_plural = 'iglesias'
+class Alfitrion(models.Model):
+    nombre = models.CharField(max_length=50,verbose_name=u'Nombre del Alfitrion')
+    direccion = models.TextField(verbose_name=u'direccion')
+    def __unicode__(self):
+        return self.nombre
+    class Meta:
+        db_table = u'alfitrion'
+        verbose_name_plural = 'alfitriones'
+
+class Observacion(models.Model):
+    cargos = models.CharField(max_length = 20,unique=True)
+    def __unicode__(self):
+        return self.cargos
+    class Meta:
+        db_table = u'observacion'
+        verbose_name_plural = 'observaciones'
+
+
+class Personas(models.Model):
+    cedula = models.CharField(max_length=50,unique=True,verbose_name=u'Numero de Identificacion')
+    nombre = models.CharField(max_length=20)
+    apellido = models.CharField(max_length=20)
+    telefono = models.CharField(max_length=11,blank=True)
+    genero = models.IntegerField(choices=((0,'Masculino'),(1,'Femenino')),default=0,verbose_name=u'Sexo')
+    iglesia = models.ForeignKey(Iglesias)
+    observacion = models.ForeignKey(Observacion)
+    alfitrion = models.ForeignKey(Alfitrion)
+    class Meta:
+        db_table = u'personas'
+        verbose_name_plural = "personas"
+    def __unicode__(self):
+        return u'%s'%(self.cedula)

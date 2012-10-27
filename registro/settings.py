@@ -116,6 +116,10 @@ TEMPLATE_DIRS = (
     os.path.join(os.getcwd(), 'templates/admin'),
 )
 
+AJAX_LOOKUP_CHANNELS={
+'personas' : ('personas.autocompletado','PersonasLookup'),
+}
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,9 +127,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ajax_select',
     'grappelli',
     'django.contrib.admin',
 	'personas',
+    'inscripciones',
 )
 
 # A sample logging configuration. The only tangible logging

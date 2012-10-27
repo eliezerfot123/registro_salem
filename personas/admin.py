@@ -1,4 +1,5 @@
 from personas.models import *
+from personas.forms import *
 from django.contrib import admin
 
 class PersonasAdmin(admin.ModelAdmin):
@@ -14,9 +15,10 @@ class IglesiasAdmin(admin.ModelAdmin):
 admin.site.register(Iglesias, IglesiasAdmin)
 
 class AnfitrionAdmin(admin.ModelAdmin):
-    search_fields=['nombre']
-    list_display=('nombre','direccion')
-    list_filter=['nombre']
+    form=AnfitrionForm
+    search_fields=['persona__nombre','persona__apellido','persona__cedula']
+    list_display=('persona','direccion')
+    list_filter=['persona']
 admin.site.register(Anfitrion, AnfitrionAdmin)
 
 class ObservacionAdmin(admin.ModelAdmin):

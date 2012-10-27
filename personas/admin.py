@@ -13,11 +13,11 @@ class IglesiasAdmin(admin.ModelAdmin):
     list_filter=['nombre']
 admin.site.register(Iglesias, IglesiasAdmin)
 
-class AlfitrionAdmin(admin.ModelAdmin):
+class AnfitrionAdmin(admin.ModelAdmin):
     search_fields=['nombre']
     list_display=('nombre','direccion')
     list_filter=['nombre']
-admin.site.register(Alfitrion, AlfitrionAdmin)
+admin.site.register(Anfitrion, AnfitrionAdmin)
 
 class ObservacionAdmin(admin.ModelAdmin):
     search_fields=['cargos']

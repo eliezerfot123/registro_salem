@@ -5,7 +5,7 @@ from django.db.models import Q
 '''Autocompletado para Estudiantes'''
 class PersonasLookup(Personas):
     def get_query(self,q,request):
-        return Personas.objects.filter(Q(nombre__istartswith=q) | Q(apellido__istartswith=q) | Q(cedula__istartswith=q))
+        return Personas.objects.filter(cedula__istartswith=q)
 
     def format_result(self,personas):
         return u'%s - %s %s' % (persona.cedula, persona.nombre, persona.apellido)

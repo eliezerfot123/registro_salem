@@ -1,6 +1,7 @@
 from personas.models import *
 from personas.forms import *
 from django.contrib import admin
+from lib import admin as Autocompletar
 
 class PersonasAdmin(admin.ModelAdmin):
     search_fields=['cedula']
@@ -14,8 +15,8 @@ class IglesiasAdmin(admin.ModelAdmin):
     list_filter=['nombre']
 admin.site.register(Iglesias, IglesiasAdmin)
 
-class AnfitrionAdmin(admin.ModelAdmin):
-    form=AnfitrionForm
+class AnfitrionAdmin(Autocompletar.Autocompletar):
+    form=Autocompletar.make_ajax_form(Anfitrion,dict(persona='personas'))
     search_fields=['persona__nombre','persona__apellido','persona__cedula']
     list_display=('persona','direccion')
     list_filter=['persona']

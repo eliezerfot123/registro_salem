@@ -117,7 +117,7 @@ TEMPLATE_DIRS = (
 )
 
 AJAX_LOOKUP_CHANNELS={
-'personas' : ('personas.autocompletado','PersonasLookup'),
+'personas':('personas.autocompletado','PersonasLookup'),
 }
 
 INSTALLED_APPS = (

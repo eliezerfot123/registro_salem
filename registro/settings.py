@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'registros',                      # Or path to database file if using sqlite3.
+        'NAME': 'registros.sqlite',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -118,6 +118,28 @@ TEMPLATE_DIRS = (
 
 AJAX_LOOKUP_CHANNELS={
 'personas':('personas.autocompletado','PersonasLookup'),
+}
+
+COMPRESS_CSS = {
+    'all': {
+    'source_filenames': (
+        'shared/js/jqplugins/jquery.autocomplete.css',
+    ),
+    'output_filename': 'css/all_compressed.css',
+    'extra_context': {
+        'media': 'screen,projection',
+    },
+    },
+}
+
+COMPRESS_JS = {
+    'all': {
+        'source_filenames': (
+            'shared/jquery_ui/jquery-1.2.6.js',
+            'shared/js/jqplugins/jquery.autocomplete.js',
+        ),
+        'output_filename': 'js/all_compressed.js',
+    },
 }
 
 INSTALLED_APPS = (

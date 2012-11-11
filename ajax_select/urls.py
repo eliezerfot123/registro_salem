@@ -10,6 +10,10 @@ urlpatterns = patterns('',
     url(r'^add_popup/(?P<app_label>\w+)/(?P<model>\w+)$',
         'ajax_select.views.add_popup',
         name = 'add_popup'
+    ),
+    url(r'^ext_lookup/(?P<channel>[-\w]+)$',
+        'ajax_select.views.ext_lookup',
+        name = 'ext_lookup'
     )
 )
 

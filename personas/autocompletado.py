@@ -8,10 +8,10 @@ class PersonasLookup(Personas):
         return Personas.objects.filter(cedula__istartswith=q)
 
     def format_result(self,personas):
-        return u'%s - %s %s' % (persona.cedula, persona.nombre, persona.apellido)
+        return u'%s - %s %s' % (personas.cedula, personas.nombre, personas.apellido)
 
-    def format_item(self,persona):
-        return unicode(persona)
+    def format_item(self,Personas):
+        return unicode(Personas)
 
     def get_objects(self,ids):
         return Personas.objects.filter(pk__in=ids).order_by('persona__cedula','persona__nombre','primer_apellido')

@@ -115,6 +115,9 @@ TEMPLATE_DIRS = (
     os.path.join(os.getcwd(), 'templates'),
     os.path.join(os.getcwd(), 'templates/admin'),
 )
+# magically include jqueryUI/js/css
+AJAX_SELECT_BOOTSTRAP = True
+AJAX_SELECT_INLINES = 'inline'
 
 AJAX_LOOKUP_CHANNELS={
 'personas':('personas.autocompletado','PersonasLookup'),

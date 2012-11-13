@@ -14,4 +14,4 @@ class PersonasLookup(Personas):
         return unicode(Personas)
 
     def get_objects(self,ids):
-        return Personas.objects.filter(pk__in=ids).order_by('persona__cedula','persona__nombre','primer_apellido')
+        return Personas.objects.filter(pk__in=ids).order_by('cedula','nombre','apellido')

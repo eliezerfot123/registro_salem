@@ -10,6 +10,7 @@ class Inscripcion(models.Model):
     anfitrion = models.ForeignKey(Anfitrion, verbose_name=u'anfitrión')
     iglesia = models.ForeignKey(Iglesias)
     observacion = models.ForeignKey(Observacion, verbose_name=u'observación')
+    pago = models.CharField(max_length=10,verbose_name=u'Pago')
     def __unicode__(self):
         return u'%s (%s) en %s' %(self.persona, self.periodo, self.iglesia)
     class Meta:
